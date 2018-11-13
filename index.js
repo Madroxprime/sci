@@ -1,9 +1,9 @@
-const exec = require('child_process');
+const { spawn } = require('child_process');
 
 module.exports = function(computer, arguments,cb){
     let err = null;
     let info = '';
-    const sci = exec.spawn('./bin/NodeCommand.exe', [arguments, computer]);
+    let sci = spawn('./bin/NodeCommand.exe', [arguments, computer]);
     
     sci.on('error',function(data){
         err += data;
